@@ -14,14 +14,13 @@ namespace CarRent.CustomerManagement.API
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
-        private readonly carrentContext _carrentContext;
 
-        public CustomerController(ICustomerService customerService, carrentContext context)
+        public CustomerController(ICustomerService customerService)
         {
-            _carrentContext = context;
             _customerService = customerService;
         }
 
@@ -29,8 +28,7 @@ namespace CarRent.CustomerManagement.API
         [HttpGet]
         public ActionResult<IEnumerable<Customer>> Get()
         {
-            var students = _carrentContext.Customer.ToList();
-            return Ok(students);
+            return Ok();
         }
 
         // GET api/<CustomerController>/5

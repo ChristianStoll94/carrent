@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.CustomerManagement.Application;
 
 namespace CarRent.CustomerManagement.Domain
 {
@@ -11,9 +12,9 @@ namespace CarRent.CustomerManagement.Domain
 
         IEnumerable<Customer> FindByName(string name);
 
-        void Add(Customer customer);
+        void Add(CustomerDTO customerdto);
 
-        void Update(Customer customer);
+        void Update(CustomerDTO customerdto);
 
         void Remove(int id);
     }

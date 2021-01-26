@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CarRent.CustomerManagement.Application;
-using CarRent.CustomerManagement.Domain;
-using CarRent.Models.DBModels;
-using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,10 +20,10 @@ namespace CarRent.CustomerManagement.API
         }
 
         // GET: api/<CustomerController>
-        [HttpGet]
-        public ActionResult<IEnumerable<Customer>> Get()
+        [HttpGet("byname/{name}")]
+        public IEnumerable<CustomerDTO> Get(string name)
         {
-            return Ok();
+            return  _customerService.GetCustomersByName(name);
         }
 
         // GET api/<CustomerController>/5
@@ -43,20 +38,21 @@ namespace CarRent.CustomerManagement.API
         [HttpPost]
         public void Post([FromBody] CustomerDTO customer)
         {
-
+            _customerService.CreateCustomer(customer);
         }
 
         // PUT api/<CustomerController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CustomerDTO customer)
+        [HttpPut]
+        public void Put([FromBody] CustomerDTO customer)
         {
-
+            _customerService.UpdateCustomer(customer);
         }
 
         // DELETE api/<CustomerController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _customerService.DeleteCustomer(id);
         }
     }
 }

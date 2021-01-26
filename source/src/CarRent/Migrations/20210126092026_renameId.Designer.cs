@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRent.Migrations
 {
     [DbContext(typeof(carrentContext))]
-    [Migration("20210112094546_changeCustomerTable")]
-    partial class changeCustomerTable
+    [Migration("20210126092026_renameId")]
+    partial class renameId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,10 +22,10 @@ namespace CarRent.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("Id");
+                        .HasColumnName("id");
 
-                    b.Property<string>("Adress")
-                        .HasColumnName("name")
+                    b.Property<string>("Address")
+                        .HasColumnName("address")
                         .HasColumnType("varchar(45)");
 
                     b.Property<string>("Name")

@@ -20,7 +20,7 @@ namespace CarRent.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("Id");
+                        .HasColumnName("id");
 
                     b.Property<string>("Address")
                         .HasColumnName("address")

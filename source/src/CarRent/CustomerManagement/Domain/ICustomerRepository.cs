@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CarRent.CustomerManagement.Application;
 
 namespace CarRent.CustomerManagement.Domain
 {
     public interface ICustomerRepository
     {
-        Customer FindById(int id);
+        Customer Get(int id);
 
         IEnumerable<Customer> FindByName(string name);
 

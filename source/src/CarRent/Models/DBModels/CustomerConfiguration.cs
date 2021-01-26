@@ -13,7 +13,7 @@ namespace CarRent.Models.DBModels
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
             builder.ToTable("customer");
-            builder.Property(x => x.Id).HasColumnName("Id").IsRequired();
+            builder.Property(x => x.Id).HasColumnName("id").IsRequired().ValueGeneratedOnAdd();
             builder.Property(x => x.Name).HasColumnName("name").HasColumnType("varchar(45)");
             builder.Property(x => x.Address).HasColumnName("address").HasColumnType("varchar(45)");
         }

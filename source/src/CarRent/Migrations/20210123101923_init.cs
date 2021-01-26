@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRent.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,13 +11,14 @@ namespace CarRent.Migrations
                 name: "customer",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Customer = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    name = table.Column<string>(type: "varchar(45)", nullable: false)
+                    name = table.Column<string>(type: "varchar(45)", nullable: true),
+                    address = table.Column<string>(type: "varchar(45)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_customer", x => x.id);
+                    table.PrimaryKey("PK_customer", x => x.Customer);
                 });
         }
 
@@ -26,5 +27,6 @@ namespace CarRent.Migrations
             migrationBuilder.DropTable(
                 name: "customer");
         }
+
     }
 }

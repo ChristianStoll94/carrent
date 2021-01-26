@@ -2,22 +2,22 @@
 
 namespace CarRent.Migrations
 {
-    public partial class renameCustomerAdress : Migration
+    public partial class renameId : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
-                name: "adress",
+                name: "Customer",
                 table: "customer",
-                newName: "address");
+                newName: "id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
-                name: "address",
+                name: "id",
                 table: "customer",
-                newName: "adress");
+                newName: "Customer");
         }
     }
 }

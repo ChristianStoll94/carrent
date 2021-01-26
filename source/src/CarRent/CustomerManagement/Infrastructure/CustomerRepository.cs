@@ -17,7 +17,7 @@ namespace CarRent.CustomerManagement.Infrastructure
             _carrentContext = context;
         }
 
-        public Customer FindById(int id)
+        public Customer Get(int id)
         {
             var entity = _carrentContext.Customer.FirstOrDefault(o => o.Id == id);
             return entity;
@@ -29,29 +29,31 @@ namespace CarRent.CustomerManagement.Infrastructure
             return entity;
         }
 
-        public void Add(CustomerDTO customerdto)
+        public void Add(CustomerDTO customerDto)
         {
+            if (_carrentContext.Customer.FirstOrDefault(o => o.Id == customerDto.Id) != null)
+                throw new ArgumentException($"{customerDto.Id} is taken");
+
             var customer = new Customer()
             {
-                Id = customerdto.Id,
-                Name = customerdto.Name,
-                Address = customerdto.Address
+                Id = customerDto.Id,
+                Name = customerDto.Name,
+                Address = customerDto.Address
             };
+
             _carrentContext.Customer.Add(customer);
             _carrentContext.SaveChanges();
         }
 
-        public void Update(CustomerDTO customerdto)
+        public void Update(CustomerDTO customerDto)
         {
-            var entity = _carrentContext.Customer.FirstOrDefault(o => o.Id == customerdto.Id);
+            var entity = _carrentContext.Customer.FirstOrDefault(o => o.Id == customerDto.Id);
 
             if (entity == null)
-            {
-                throw new NullReferenceException();
-            }
+                throw new NullReferenceException($"Entity {nameof(Customer)} {customerDto.Id} was not found");
 
-            entity.Name = customerdto.Name;
-            entity.Address = customerdto.Address;
+            entity.Name = customerDto.Name;
+            entity.Address = customerDto.Address;
 
             _carrentContext.SaveChanges();
         }
@@ -61,9 +63,7 @@ namespace CarRent.CustomerManagement.Infrastructure
             var entity = _carrentContext.Customer.FirstOrDefault(o => o.Id == id);
 
             if (entity == null)
-            {
-                throw new NullReferenceException();
-            }
+                throw new NullReferenceException($"Entity {nameof(Customer)} {id} was not found");
 
             _carrentContext.Remove(entity);
 

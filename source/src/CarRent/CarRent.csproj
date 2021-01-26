@@ -8,6 +8,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210123090126_addValueGeneratedOnAdd.cs" />
+    <Compile Remove="Migrations\20210123090126_addValueGeneratedOnAdd.Designer.cs" />
+    <Compile Remove="Migrations\20210123090838_addValueGeneratedOnAdd.cs" />
+    <Compile Remove="Migrations\20210123090838_addValueGeneratedOnAdd.Designer.cs" />
+    <Compile Remove="Migrations\20210123092240_addnewId.cs" />
+    <Compile Remove="Migrations\20210123092240_addnewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123092808_addnewId.cs" />
+    <Compile Remove="Migrations\20210123092808_addnewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123093220_addnewId.cs" />
+    <Compile Remove="Migrations\20210123093220_addnewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123093448_addnewId.cs" />
+    <Compile Remove="Migrations\20210123093448_addnewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123093520_addCarTable.cs" />
+    <Compile Remove="Migrations\20210123093520_addCarTable.Designer.cs" />
+    <Compile Remove="Migrations\20210123093726_test.cs" />
+    <Compile Remove="Migrations\20210123093726_test.Designer.cs" />
+    <Compile Remove="Migrations\20210123093915_test2.cs" />
+    <Compile Remove="Migrations\20210123093915_test2.Designer.cs" />
+    <Compile Remove="Migrations\20210123094317_addNewId.cs" />
+    <Compile Remove="Migrations\20210123094317_addNewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123095041_addNewId.cs" />
+    <Compile Remove="Migrations\20210123095041_addNewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123095307_addNewId.cs" />
+    <Compile Remove="Migrations\20210123095307_addNewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123095653_addNewId.cs" />
+    <Compile Remove="Migrations\20210123095653_addNewId.Designer.cs" />
+    <Compile Remove="Migrations\20210123101850_init.cs" />
+    <Compile Remove="Migrations\20210123101850_init.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />

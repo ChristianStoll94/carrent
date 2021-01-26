@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent", "src\CarRent\CarRent.csproj", "{E1C481B3-0E66-44D0-A98E-3927BE4DFBAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRent.Tests", "tests\CarRent.Tests\CarRent.Tests.csproj", "{5E895A9F-6A95-46C5-935B-71894ED0C9A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.Tests", "tests\CarRent.Tests\CarRent.Tests.csproj", "{5E895A9F-6A95-46C5-935B-71894ED0C9A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{BDA28AE1-8205-44C1-9F4D-F6DC2006B10A}"
 EndProject

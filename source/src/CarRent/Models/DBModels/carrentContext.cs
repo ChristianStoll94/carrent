@@ -33,6 +33,8 @@ namespace CarRent.Models.DBModels
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            //modelBuilder.ApplyConfiguration(new CarConfiguration());
+            //modelBuilder.ApplyConfiguration(new CarClassConfiguration());
 
         }
     }

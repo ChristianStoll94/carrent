@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.CarManagement.Application;
+using CarRent.CarManagement.Domain;
+using CarRent.CarManagement.Infrastrucure;
 using CarRent.CustomerManagement.Application;
 using CarRent.CustomerManagement.Domain;
 using CarRent.CustomerManagement.Infrastructure;
@@ -42,6 +45,9 @@ namespace CarRent
 
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+
+            services.AddTransient<ICarService, CarService>();
+            services.AddTransient<ICarRepository, CarRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

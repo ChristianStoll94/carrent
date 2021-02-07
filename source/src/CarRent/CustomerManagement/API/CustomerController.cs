@@ -36,14 +36,14 @@ namespace CarRent.CustomerManagement.API
 
         // POST api/<CustomerController>
         [HttpPost]
-        public void Post([FromBody] CustomerDTO customer)
+        public void Post([FromQuery] CustomerDTO customer)
         {
             _customerService.CreateCustomer(customer);
         }
 
         // PUT api/<CustomerController>/5
         [HttpPut]
-        public void Put([FromBody] CustomerDTO customer)
+        public void Put([FromQuery] CustomerDTO customer)
         {
             _customerService.UpdateCustomer(customer);
         }

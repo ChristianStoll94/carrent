@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using CarRent.CarManagement.Domain;
+﻿using CarRent.CarManagement.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CarRent.Models.DBModels
+namespace CarRent.CarManagement.Infrastrucure
 {
     public class CarConfiguration : IEntityTypeConfiguration<Car>
     {

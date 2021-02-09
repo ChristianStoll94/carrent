@@ -2,34 +2,73 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.CarManagement.Domain;
 
 namespace CarRent.CarManagement.Application
 {
     public class CarService : ICarService
     {
+        private readonly ICarRepository _carRepository;
+        public CarService(ICarRepository carRepository)
+        {
+            _carRepository = carRepository;
+        }
         public CarDTO GetCar(int carId)
         {
-            throw new NotImplementedException();
+            var entity = _carRepository.Get(carId);
+
+            if (entity == null)
+                throw new NullReferenceException($"Entity {nameof(Car)} {carId} was not found");
+
+            return new CarDTO()
+            {
+                Id = entity.Id,
+                Typ = entity.Typ,
+                Brand = entity.Brand,
+                CarClassEnum = MapCar(entity.CarClass.Description)
+            };
         }
 
         public IEnumerable<CarDTO> GetCarByFilter(CarDTO carDto)
         {
-            throw new NotImplementedException();
+            return _carRepository.FindByFilter(carDto).Select(a => new CarDTO()
+            {
+                Id = a.Id,
+                Typ = a.Typ,
+                Brand = a.Brand,
+                CarClassEnum = MapCar(a.CarClass.Description)
+            }).ToList();
         }
 
         public void DeleteCar(int carId)
         {
-            throw new NotImplementedException();
+            _carRepository.Remove(carId);
         }
 
         public void CreateCar(CarDTO carDto)
         {
-            throw new NotImplementedException();
+            //ToDo:Validation
+            _carRepository.Add(carDto);
         }
 
         public void UpdateCar(CarDTO carDto)
         {
-            throw new NotImplementedException();
+            _carRepository.Update(carDto);
+        }
+
+        public CarClassEnum MapCar(string carClass)
+        {
+            switch (carClass)
+            {
+                case "Einfachklasse":
+                    return CarClassEnum.Einfach;
+                case "Mittelklasse":
+                    return CarClassEnum.Mittel;
+                case "Luxusklasse":
+                    return CarClassEnum.Luxus;
+                default:
+                    throw new NullReferenceException();
+            }
         }
     }
 }

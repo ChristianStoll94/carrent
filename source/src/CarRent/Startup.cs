@@ -41,7 +41,9 @@ namespace CarRent
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent", Version = "v1" });
+
             });
+            services.AddSwaggerGenNewtonsoftSupport();
 
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();

@@ -69,5 +69,6 @@ namespace CarRent.CustomerManagement.Infrastructure
 
             _carrentContext.SaveChanges();
         }
+
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using CarRent.CarManagement.Domain;
+using CarRent.CarManagement.Infrastrucure;
 using CarRent.CustomerManagement.Domain;
+using CarRent.CustomerManagement.Infrastructure;
 using CarRent.Seed;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -20,6 +22,8 @@ namespace CarRent.Models.DBModels
         }
 
         public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Car> Car { get; set; }
+        public virtual DbSet<CarClass> CarClass { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

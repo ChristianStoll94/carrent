@@ -13,7 +13,7 @@ namespace CarRent.CarManagement.API
     [ApiController]
     public class CarController : ControllerBase
     {
-        private ICarService _carService;
+        private readonly ICarService _carService;
 
         public CarController(ICarService carService)
         {

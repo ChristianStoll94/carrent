@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CarRent.CarManagement.Application
 {
-    public enum CarClass
+    public enum CarClassEnum
     {
         Luxus,
         Mittel,
@@ -17,6 +17,6 @@ namespace CarRent.CarManagement.Application
         public int Id { get; set; }
         public string Typ { get; set; }
         public string Brand { get; set; }
-        public CarClass CarClass { get; set; }
+        public CarClassEnum? CarClassEnum { get; set; }
     }
 }

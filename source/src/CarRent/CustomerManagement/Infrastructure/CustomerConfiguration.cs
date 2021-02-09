@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CarRent.CustomerManagement.Domain;
+﻿using CarRent.CustomerManagement.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CarRent.Models.DBModels
+namespace CarRent.CustomerManagement.Infrastructure
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {

@@ -1,5 +1,7 @@
 ﻿using System;
+using CarRent.CarManagement.Domain;
 using CarRent.CustomerManagement.Domain;
+using CarRent.Seed;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Logging;
@@ -33,8 +35,10 @@ namespace CarRent.Models.DBModels
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
-            //modelBuilder.ApplyConfiguration(new CarConfiguration());
-            //modelBuilder.ApplyConfiguration(new CarClassConfiguration());
+            modelBuilder.ApplyConfiguration(new CarConfiguration());
+            modelBuilder.ApplyConfiguration(new CarClassConfiguration());
+
+            modelBuilder.Entity<CarClass>().HasData(BaseSeed.CarClasses);
 
         }
     }

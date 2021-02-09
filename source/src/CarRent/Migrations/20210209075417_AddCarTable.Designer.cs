@@ -2,14 +2,16 @@
 using CarRent.Models.DBModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRent.Migrations
 {
     [DbContext(typeof(carrentContext))]
-    partial class carrentContextModelSnapshot : ModelSnapshot
+    [Migration("20210209075417_AddCarTable")]
+    partial class AddCarTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,23 +56,6 @@ namespace CarRent.Migrations
                     b.HasKey("Description");
 
                     b.ToTable("carclass");
-
-                    b.HasData(
-                        new
-                        {
-                            Description = "Einfachklasse",
-                            Price = "13.5"
-                        },
-                        new
-                        {
-                            Description = "Mittelklasse",
-                            Price = "20.6"
-                        },
-                        new
-                        {
-                            Description = "Luxusklasse",
-                            Price = "35.45"
-                        });
                 });
 
             modelBuilder.Entity("CarRent.CustomerManagement.Domain.Customer", b =>

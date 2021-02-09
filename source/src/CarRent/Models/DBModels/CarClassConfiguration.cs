@@ -12,7 +12,7 @@ namespace CarRent.Models.DBModels
     {
         public void Configure(EntityTypeBuilder<CarClass> builder)
         {
-            builder.ToTable("car");
+            builder.ToTable("carclass");
             builder.Property(x => x.Description).HasColumnName("description").IsRequired().ValueGeneratedOnAdd();
             builder.Property(x => x.Price).HasColumnName("price").HasColumnType("varchar(45)");
             builder.HasMany(x => x.Cars).WithOne(x => x.CarClass).IsRequired(false);

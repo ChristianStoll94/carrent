@@ -18,6 +18,9 @@ using CarRent.CustomerManagement.Application;
 using CarRent.CustomerManagement.Domain;
 using CarRent.CustomerManagement.Infrastructure;
 using CarRent.Models.DBModels;
+using CarRent.ReservationManagement.Application;
+using CarRent.ReservationManagement.Domain;
+using CarRent.ReservationManagement.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRent
@@ -50,6 +53,9 @@ namespace CarRent
 
             services.AddTransient<ICarService, CarService>();
             services.AddTransient<ICarRepository, CarRepository>();
+
+            services.AddTransient<IReservationService, ReservationService>();
+            services.AddTransient<IReservationRepository, ReservationRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

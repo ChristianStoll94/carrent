@@ -10,7 +10,7 @@ namespace CarRent.CarManagement.Infrastrucure
         {
             builder.ToTable("carclass");
             builder.Property(x => x.Description).HasColumnName("description").IsRequired().ValueGeneratedOnAdd();
-            builder.Property(x => x.Price).HasColumnName("price").HasColumnType("varchar(45)");
+            builder.Property(x => x.Price).HasColumnName("price").HasColumnType("decimal");
             builder.HasMany(x => x.Cars).WithOne(x => x.CarClass).IsRequired(false);
         }
     }

@@ -58,17 +58,13 @@ namespace CarRent.CarManagement.Application
 
         public CarClassEnum MapCar(string carClass)
         {
-            switch (carClass)
+            return carClass switch
             {
-                case "Einfachklasse":
-                    return CarClassEnum.Einfach;
-                case "Mittelklasse":
-                    return CarClassEnum.Mittel;
-                case "Luxusklasse":
-                    return CarClassEnum.Luxus;
-                default:
-                    throw new NullReferenceException();
-            }
+                "Einfachklasse" => CarClassEnum.Einfach,
+                "Mittelklasse" => CarClassEnum.Mittel,
+                "Luxusklasse" => CarClassEnum.Luxus,
+                _ => throw new NullReferenceException(),
+            };
         }
     }
 }

@@ -3,6 +3,8 @@ using CarRent.CarManagement.Domain;
 using CarRent.CarManagement.Infrastrucure;
 using CarRent.CustomerManagement.Domain;
 using CarRent.CustomerManagement.Infrastructure;
+using CarRent.ReservationManagement.Domain;
+using CarRent.ReservationManagement.Infrastructure;
 using CarRent.Seed;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -24,6 +26,7 @@ namespace CarRent.Models.DBModels
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Car> Car { get; set; }
         public virtual DbSet<CarClass> CarClass { get; set; }
+        public virtual DbSet<Reservation> Reservation { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,6 +44,7 @@ namespace CarRent.Models.DBModels
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new CarConfiguration());
             modelBuilder.ApplyConfiguration(new CarClassConfiguration());
+            modelBuilder.ApplyConfiguration(new ReservationConfiguration());
 
             modelBuilder.Entity<CarClass>().HasData(BaseSeed.CarClasses);
 

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.ReservationManagement.Domain;
 
 namespace CarRent.CarManagement.Domain
 {
@@ -15,5 +16,6 @@ namespace CarRent.CarManagement.Domain
         public string Brand { get; set; }
         public string Typ { get; set; }
         public CarClass CarClass { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

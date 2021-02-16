@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.ReservationManagement.Domain;
 
 namespace CarRent.CustomerManagement.Domain
 {
@@ -14,6 +15,7 @@ namespace CarRent.CustomerManagement.Domain
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
 

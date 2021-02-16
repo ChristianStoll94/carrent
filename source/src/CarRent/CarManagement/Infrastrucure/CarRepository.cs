@@ -83,17 +83,13 @@ namespace CarRent.CarManagement.Infrastrucure
 
         public string MapCarClass(CarClassEnum? carClassEnum)
         {
-            switch (carClassEnum)
+            return carClassEnum switch
             {
-                case CarClassEnum.Einfach:
-                    return "Einfachklasse";
-                case CarClassEnum.Mittel:
-                    return "Mittelklasse";
-                case CarClassEnum.Luxus:
-                    return "Luxusklasse";
-                default:
-                    return null;
-            }
+                CarClassEnum.Einfach => "Einfachklasse",
+                CarClassEnum.Mittel => "Mittelklasse",
+                CarClassEnum.Luxus => "Luxusklasse",
+                _ => null,
+            };
         }
     }
 }

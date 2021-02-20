@@ -14,6 +14,7 @@ namespace CarRent.CarManagement.Infrastrucure
             builder.Property(x => x.Typ).HasColumnName("typ").HasColumnType("varchar(45)");
             builder.HasOne(x => x.CarClass).WithMany(x => x.Cars).IsRequired();
             builder.HasMany(x => x.Reservations).WithOne(x => x.Car);
+            builder.HasMany(x => x.Contracts).WithOne(x => x.Car);
         }
     }
 }

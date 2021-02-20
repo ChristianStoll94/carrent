@@ -13,6 +13,7 @@ namespace CarRent.CustomerManagement.Infrastructure
             builder.Property(x => x.Name).HasColumnName("name").HasColumnType("varchar(45)");
             builder.Property(x => x.Address).HasColumnName("address").HasColumnType("varchar(45)");
             builder.HasMany(x => x.Reservations).WithOne(x => x.Customer);
+            builder.HasMany(x => x.Contracts).WithOne(x => x.Customer);
         }
     }
 }

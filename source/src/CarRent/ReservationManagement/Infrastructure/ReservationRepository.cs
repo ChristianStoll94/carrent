@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CarRent.Models.DBModels;
 using CarRent.ReservationManagement.Application;
 using CarRent.ReservationManagement.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.ReservationManagement.Infrastructure
 {
@@ -20,6 +21,8 @@ namespace CarRent.ReservationManagement.Infrastructure
         public Reservation Get(int id)
         {
             var entity = _carrentContext.Reservation
+                .Include(r => r.Car)
+                .Include(r => r.Customer)
                 .FirstOrDefault(o => o.Id == id);
             return entity;
         }

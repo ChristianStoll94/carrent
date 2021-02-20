@@ -1,6 +1,7 @@
 ﻿using System;
 using CarRent.CarManagement.Domain;
 using CarRent.CarManagement.Infrastrucure;
+using CarRent.ContractManagement.Domain;
 using CarRent.CustomerManagement.Domain;
 using CarRent.CustomerManagement.Infrastructure;
 using CarRent.ReservationManagement.Domain;
@@ -27,6 +28,7 @@ namespace CarRent.Models.DBModels
         public virtual DbSet<Car> Car { get; set; }
         public virtual DbSet<CarClass> CarClass { get; set; }
         public virtual DbSet<Reservation> Reservation { get; set; }
+        public virtual DbSet<Contract> Contract { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

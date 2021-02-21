@@ -10,6 +10,7 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using RestSharp;
 
 namespace CarRent.Tests
 {
@@ -23,19 +24,15 @@ namespace CarRent.Tests
         }
 
         [Test]
-        public async Task CustomerEndpoint_PostNewCustomer_Get200Ok()
+        public async Task CustomerEndpoint_GetCustomer_Get200Ok()
         {
             //Arrange
 
             //Act
-            var response = await TestClient.GetAsync("https://localhost:5001/api/Car/1");
+            var response = await TestClient.GetAsync("https://localhost:5001/api/Customer/1");
             
             //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-
-            //var responseContent = await response.Content.ReadAsStringAsync();
-            //var Cardto2 = JsonConvert.DeserializeObject<CarDTO>(responseContent);
-            //(await response.Content.ReadAsStringAsync()).Should().BeEmpty();
         }
 
         [Test]
@@ -44,26 +41,21 @@ namespace CarRent.Tests
             //Arrange
 
             //Act
-            var response = await TestClient.DeleteAsync("https://localhost:5001/api/Car/1");
+            var response = await TestClient.DeleteAsync("https://localhost:5001/api/Customer/2");
 
             //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
+        [Test]
         public async Task CustomerEndpoint_PostCustomer_Get200Ok()
         {
-            //Arrange
-            var Customer = new CustomerDTO()
-            {
-                Name = "Klaus",
-                Address = "Weinfelden",
-            };
-            string JsonString = JsonConvert.SerializeObject(Customer);
+            ////Arrange
 
-            //Act
-            var response = await TestClient.PostAsync("https://localhost:5001/api/Car/1", JsonString);
+            ////Act
+            var response = await TestClient.PostAsync("https://localhost:5001/api/Customer?Id=3&Name=ueli&Address=schmid", null);
 
-            //Assert
+            ////Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
     }

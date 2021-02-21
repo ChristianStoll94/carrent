@@ -54,7 +54,7 @@ namespace CarRent.ReservationManagement.Application
             _reservationRepository.Update(reservationDto);
         }
 
-        private double CalculatePrice(int carId, int days)
+        public double CalculatePrice(int carId, int days)
         {
             return days * _reservationRepository.GetPrice(carId);
         }
